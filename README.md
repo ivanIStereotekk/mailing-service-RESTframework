@@ -1,2 +1,2 @@
 # show_off_skills_django_drf_spectacullar
-django/DRF_test_task_tynna_getting_position
+django/DRF_test_task_trynna_getting_position
