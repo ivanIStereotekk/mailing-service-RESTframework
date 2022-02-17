@@ -62,6 +62,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'c2c_spectacular.wsgi.application'
+# Cors/rest_framework
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_URLS_REGEX = r'^/api/.*$'
+
+
+
+
 
 
 # Database
