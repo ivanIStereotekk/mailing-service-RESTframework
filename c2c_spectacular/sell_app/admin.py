@@ -3,6 +3,8 @@ from django.contrib import admin
 from django.contrib import admin
 from .models import*
 
+
+
 class Customer_Admin(admin.ModelAdmin):
     class Meta:
         list_display = ()
@@ -18,3 +20,5 @@ class Good_Admin(admin.ModelAdmin):
         list_display_links = ('customer','code',)
         search_fields = ('customer','code',)
 admin.site.register(Good, Good_Admin)
+
+

@@ -17,7 +17,7 @@ class Customer(AbstractUser):
     class Meta:
         verbose_name_plural = 'Клиенты'
         verbose_name = 'Клиент'
-        ordering = ['user_type','user','registred',]
+        ordering = ['user_type','username','registred',]
 
 class Good(models.Model):
     code = models.CharField(max_length=250, verbose_name='Код товара',blank=True,unique=True)
