@@ -21,7 +21,7 @@ class Customer(AbstractUser):
 
 class Good(models.Model):
     code = models.CharField(max_length=250, verbose_name='Код товара',blank=True,unique=True)
-    quantity = models.IntegerField(max_length=10,verbose_name='Едениц товара',null=True)
+    quantity = models.IntegerField(verbose_name='Едениц товара',null=True)
     customer = models.ForeignKey(Customer,on_delete=models.PROTECT,verbose_name='Пользователь',blank=True)
     description = models.CharField(max_length=250, verbose_name='Наименование товара',blank=True)
     class Meta:
