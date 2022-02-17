@@ -8,6 +8,7 @@ from rest_framework import status
 '''QUERYSET OBJECTS SECTION'''
 @api_view(['GET','POST'])
 def api_customers(request):
+    '''http://127.0.0.1:8000/api/customers'''
 
     if request.method == 'GET':
         customers = Customer.objects.all()
@@ -41,7 +42,7 @@ def api_goods(request):
 
 @api_view(['GET','PUT','PATCH','DELETE'])
 def api_customer_detail(request, pk):
-    '''http://127.0.0.1:8000/sell_app/api/customer/<pk>/'''
+    '''http://127.0.0.1:8000/api/customer/<pk>/'''
     client = Customer.objects.get(pk=pk)
     if request.method == 'GET':
         serializer = Customer_Serializer(client)
@@ -58,7 +59,7 @@ def api_customer_detail(request, pk):
 
 @api_view(['GET','PUT','PATCH','DELETE'])
 def api_goods_detail(request,pk):
-    '''http://127.0.0.1:8000/sell_app/api/good/<pk>/'''
+    '''http://127.0.0.1:8000/api/good/<pk>/'''
     good = Good.objects.get(pk=pk)
     if request.method == 'GET':
         serializer = Good_Serializer(good)
@@ -74,4 +75,4 @@ def api_goods_detail(request,pk):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
-#
+#Done!
