@@ -31,6 +31,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'sell_app.apps.SellAppConfig',
+    'rest_framework_swagger',
+
+
 ]
 
 MIDDLEWARE = [
@@ -67,9 +70,14 @@ WSGI_APPLICATION = 'c2c_spectacular.wsgi.application'
 # Cors/rest_framework
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_URLS_REGEX = r'^/api/.*$'
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
 
 
-ROOT_URLCONF = 'sell_app.urls'
+#ROOT_URLCONF = 'sell_app.urls'
 
 
 
