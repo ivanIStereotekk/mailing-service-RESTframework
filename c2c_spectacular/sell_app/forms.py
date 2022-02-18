@@ -8,7 +8,7 @@ from django.contrib.auth.forms import*
 
 class SearchForm (forms.Form):
     '''Поиск на front'''
-    keyword = forms.CharField(max_length=30,label='Кто ищет тот всегда найдет!',required=False)
+    keyword = forms.CharField(max_length=30,label='Ищу!',required=False)
 
 
 class Customer_Creation_Form(UserCreationForm):
