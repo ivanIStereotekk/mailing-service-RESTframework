@@ -11,6 +11,7 @@ from rest_framework import status
 
 
 class Create_Customer_API(CreateAPIView):
+    permission_classes = ['AllowAny',]
     queryset = Customer.objects.all()
     serializer_class = Customer_Serializer
 

@@ -17,6 +17,7 @@ app_name = 'sell_app'
 
 urlpatterns = [
 
+path('api/register/',Create_Customer_API.as_view),
     path('api_schema/', get_schema_view(
         title='API Schema',
         description='Guide for the REST API'
