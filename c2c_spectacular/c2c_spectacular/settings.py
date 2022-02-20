@@ -17,7 +17,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'sell_app.My_User'
+AUTH_USER_MODEL = 'sell_app.Customer'
 
 # Application definition
 
@@ -32,9 +32,16 @@ INSTALLED_APPS = [
     'corsheaders',
     'sell_app.apps.SellAppConfig',
     'rest_framework_swagger',
+    'rest_framework.authtoken',
 
 
 ]
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

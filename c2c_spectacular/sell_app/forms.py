@@ -11,10 +11,10 @@ class SearchForm (forms.Form):
     keyword = forms.CharField(max_length=30,label='Ищу!',required=False)
 
 
-class My_User_Creation_Form(UserCreationForm):
+class Customer_Creation_Form(UserCreationForm):
     '''Form That creates Customer (Front - User)'''
     class Meta:
-        model = My_User
+        model = Customer
         fields = UserCreationForm.Meta.fields +(
             'username','gender','password','email',
             'first_name','last_name','birth_date',

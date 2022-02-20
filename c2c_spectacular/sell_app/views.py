@@ -1,9 +1,18 @@
 import clients as clients
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import*
 from .serializers import*
 from rest_framework import status
+
+
+
+
+
+class Create_Customer_API(CreateAPIView):
+    queryset = Customer.objects.all()
+    serializer_class = Customer_Serializer
 
 
 '''QUERYSET OBJECTS SECTION'''
@@ -24,14 +33,16 @@ def api_customers(request):
 
 @api_view(['GET','POST'])
 def api_goods(request):
-
     if request.method == 'GET':
         goods = Good.objects.all()
         serializer = Good_Serializer(goods, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
         serializer = Good_Serializer(data=request.data)
+        serializer.customer = Customer.objects.get(auth_key=request.headers['Authorization'])
         if serializer.is_valid():
+
+            print(serializer.data)
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -45,9 +56,7 @@ def api_goods(request):
 def api_customer_detail(request, pk):
 
     client = Customer.objects.get(pk=pk)
-    #client = Customer.objects.get(auth_key=request.headers)# Если в хэдерс есть auth_key, то pass...
-    print('>>>>>>>>HERE!!!!!!')
-    print(request.headers['User-Agent'])
+
     if request.method == 'GET':
         serializer = Customer_Serializer(client)
         return Response(serializer.data)
@@ -63,15 +72,15 @@ def api_customer_detail(request, pk):
 
 @api_view(['GET','PUT','PATCH','DELETE'])
 def api_goods_detail(request,pk):
-    '''http://127.0.0.1:8000/api/good/<pk>/'''
+
     good = Good.objects.get(pk=pk)
     if request.method == 'GET':
         serializer = Good_Serializer(good)
         return Response(serializer.data)
     elif request.method == 'PUT' or request.method == 'PATCH':
+
         serializer = Good_Serializer(good, data=request.data)
         if serializer.is_valid():
-            #serializer.customer = request.user.pk
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)

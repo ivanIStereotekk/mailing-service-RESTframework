@@ -5,22 +5,15 @@ from .models import*
 
 
 
-class My_User_Admin(admin.ModelAdmin):
-    class Meta:
-        list_display = ('username','surname', 'phone_number',)
-        list_display_links = ('username','surname', 'phone_number')
-        search_fields = ('username','surname','phone_number',)
-
-
-admin.site.register(My_User, My_User_Admin)
-
 class Customer_Admin(admin.ModelAdmin):
     class Meta:
-        list_display = ('name', 'auth_key', 'phone_number',)
-        list_display_links = ('name', 'auth_key', 'phone_number')
-        search_fields = ('name', 'auth_key', 'phone_number')
+        list_display = ('username','surname','name', 'phone_number',)
+        list_display_links = ('username','surname','name', 'phone_number')
+        search_fields = ('username','surname','name','phone_number',)
+
 
 admin.site.register(Customer, Customer_Admin)
+
 
 
 class Good_Admin(admin.ModelAdmin):
