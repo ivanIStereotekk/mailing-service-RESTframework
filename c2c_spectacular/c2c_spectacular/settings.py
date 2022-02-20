@@ -17,7 +17,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'sell_app.Customer'
+AUTH_USER_MODEL = 'sell_app.My_User'
 
 # Application definition
 

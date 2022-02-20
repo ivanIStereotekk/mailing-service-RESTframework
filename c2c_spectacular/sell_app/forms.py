@@ -11,12 +11,12 @@ class SearchForm (forms.Form):
     keyword = forms.CharField(max_length=30,label='Ищу!',required=False)
 
 
-class Customer_Creation_Form(UserCreationForm):
+class My_User_Creation_Form(UserCreationForm):
     '''Form That creates Customer (Front - User)'''
     class Meta:
-        model = Customer
+        model = My_User
         fields = UserCreationForm.Meta.fields +(
             'username','gender','password','email',
             'first_name','last_name','birth_date',
-            'phone_number','user_type','adress')
+            'phone_number','adress')
         help_text ={'username':'Чтобы сменить email, пройдите по ссылке ниже формы'}

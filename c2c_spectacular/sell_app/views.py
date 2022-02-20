@@ -71,7 +71,7 @@ def api_goods_detail(request,pk):
     elif request.method == 'PUT' or request.method == 'PATCH':
         serializer = Good_Serializer(good, data=request.data)
         if serializer.is_valid():
-            serializer.customer = request.user.pk
+            #serializer.customer = request.user.pk
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
