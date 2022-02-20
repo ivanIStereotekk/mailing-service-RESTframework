@@ -1,3 +1,4 @@
+import clients as clients
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .models import*
@@ -42,8 +43,11 @@ def api_goods(request):
 
 @api_view(['GET','PUT','PATCH','DELETE'])
 def api_customer_detail(request, pk):
-    '''http://127.0.0.1:8000/api/customer/<pk>/'''
+
     client = Customer.objects.get(pk=pk)
+    #client = Customer.objects.get(auth_key=request.headers)# Если в хэдерс есть auth_key, то pass...
+    print('>>>>>>>>HERE!!!!!!')
+    print(request.headers['User-Agent'])
     if request.method == 'GET':
         serializer = Customer_Serializer(client)
         return Response(serializer.data)
@@ -67,6 +71,7 @@ def api_goods_detail(request,pk):
     elif request.method == 'PUT' or request.method == 'PATCH':
         serializer = Good_Serializer(good, data=request.data)
         if serializer.is_valid():
+            serializer.customer = request.user.pk
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -76,3 +81,4 @@ def api_goods_detail(request,pk):
 
 
 #Done!
+'''serializer.auth_key = request.user.auth_key'''

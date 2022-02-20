@@ -9,7 +9,7 @@ class Good_Serializer(serializers.ModelSerializer):
 
 
 
-class Customer_Serializer(serializers.Serializer):
+class Customer_Serializer(serializers.ModelSerializer):
     class Meta:
         model = Customer
         fields = ('__all__')

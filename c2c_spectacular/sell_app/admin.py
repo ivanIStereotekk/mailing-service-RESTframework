@@ -7,7 +7,7 @@ from .models import*
 
 class Customer_Admin(admin.ModelAdmin):
     class Meta:
-        list_display = ()
+        list_display = ('username', 'user_type','phone_number',)
         list_display_links = ('username', 'user_type','phone_number')
         search_fields = ('user_type','username','phone_number',)
         list_filter = ('username', 'phone_number',)

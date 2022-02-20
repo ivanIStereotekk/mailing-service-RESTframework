@@ -14,7 +14,7 @@ class Customer(AbstractUser):
     user_type = models.TextField(max_length=8, blank=True,choices=USER_TYPE, verbose_name='физ.лицо/орг.')
     adress = models.CharField(max_length=150, blank=True, verbose_name='Адрес')
     registred = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Зарегистрирован')
-
+    auth_key = models.CharField(max_length=250, verbose_name='Auth_key', blank=True, unique=True)
     class Meta:
         verbose_name_plural = 'Клиенты'
         verbose_name = 'Клиент'
