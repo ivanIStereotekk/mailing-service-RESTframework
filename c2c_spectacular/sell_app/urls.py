@@ -17,8 +17,8 @@ app_name = 'sell_app'
 
 urlpatterns = [
 
-path('api/register/',Create_Customer_API.as_view),
-    path('api_schema/', get_schema_view(
+
+    path('api/schema/', get_schema_view(
         title='API Schema',
         description='Guide for the REST API'
     ), name='api_schema'),
@@ -34,6 +34,8 @@ path('api/register/',Create_Customer_API.as_view),
         template_name='docs.html',
         extra_context={'schema_url': 'api_schema'}
     ), name='swagger-ui'),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.authtoken')),
 ]
 
 '''http://127.0.0.1:8000/sell_app/api_schema/'''

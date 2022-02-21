@@ -10,10 +10,7 @@ from rest_framework import status
 
 
 
-class Create_Customer_API(CreateAPIView):
-    permission_classes = ['AllowAny',]
-    queryset = Customer.objects.all()
-    serializer_class = Customer_Serializer
+
 
 
 '''QUERYSET OBJECTS SECTION'''
@@ -91,4 +88,8 @@ def api_goods_detail(request,pk):
 
 
 #Done!
-'''serializer.auth_key = request.user.auth_key'''
+'''serializer.auth_key = request.user.auth_key
+class Create_Customer_API(CreateAPIView):
+    permission_classes = ['AllowAny',]
+    queryset = Customer.objects.all()
+    serializer_class = Customer_Serializer'''
