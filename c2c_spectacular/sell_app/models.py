@@ -18,8 +18,6 @@ class Customer(AbstractUser):
     phone_number = models.CharField(max_length=12, verbose_name='Номер телефона',blank=True,unique=True)
     adress = models.CharField(max_length=150, blank=True, verbose_name='Адрес')
     registred = models.DateTimeField(auto_now_add=True, db_index=True, verbose_name='Зарегистрирован')
-    #auth_key = models.CharField(max_length=250, verbose_name='Auth_key', blank=True, unique=True)
-
     class Meta:
         verbose_name_plural = 'Клиенты'
         verbose_name = 'Клиент'
