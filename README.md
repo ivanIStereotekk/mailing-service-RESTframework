@@ -1,2 +1,2 @@
-# show_off_skills_django_drf_spectacullar
-django/DRF_test_task_trynna_getting_position
+Django / Djangorestframework
+mailing system
